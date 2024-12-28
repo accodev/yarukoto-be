@@ -45,7 +45,7 @@ var notesApi = workspaceApi.MapGroup("/{workspaceId}/notes");
 notesApi.MapGet("/", (string workspaceId) =>
 {
     var notes = MockData.Notes.Where(x => x.WorkspaceId == workspaceId).ToArray();
-    return notes.Length != 0 ? Results.Ok(notes): Results.NotFound();
+    return Results.Ok(notes);
 });
 notesApi.MapPost("/", (string workspaceId, Note note) =>
 {
