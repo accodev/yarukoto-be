@@ -35,13 +35,13 @@ public static class MockData
 
     public static List<Note> Notes =
     [
-        new Note("1", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", "1", "Meeting Notes", DateTime.Now, GetRandomContent(), GetRandomColor()),
-        new Note("2", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", "2", "Project Plan", DateTime.Now.AddDays(1), GetRandomContent(), GetRandomColor()),
-        new Note("3", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", "3", "Research Ideas", DateTime.Now.AddDays(2), GetRandomContent(), GetRandomColor()),
-        new Note("4", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", "4", "Client Feedback", DateTime.Now.AddDays(3), GetRandomContent(), GetRandomColor()),
-        new Note("5", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", "5", "Weekly Report", DateTime.Now.AddDays(4), GetRandomContent(), GetRandomColor()),
-        new Note("6", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", "6", null, DateTime.Now.AddDays(5), GetRandomContent(), GetRandomColor()),
-        new Note("7", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", "7", null, DateTime.Now.AddDays(6), GetRandomContent(), GetRandomColor()),
-        new Note("8", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", "8", null, DateTime.Now.AddDays(7), GetRandomContent(), GetRandomColor())
+        new Note("1", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", 1, "Meeting Notes", DateTime.Now, GetRandomContent(), GetRandomColor()),
+        new Note("2", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", 2, "Project Plan", DateTime.Now.AddDays(1), GetRandomContent(), GetRandomColor()),
+        new Note("3", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", 3, "Research Ideas", DateTime.Now.AddDays(2), GetRandomContent(), GetRandomColor()),
+        new Note("4", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", 4, "Client Feedback", DateTime.Now.AddDays(3), GetRandomContent(), GetRandomColor()),
+        new Note("5", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", 5, "Weekly Report", DateTime.Now.AddDays(4), GetRandomContent(), GetRandomColor()),
+        new Note("6", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", 6, null, DateTime.Now.AddDays(5), GetRandomContent(), GetRandomColor()),
+        new Note("7", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", 7, null, DateTime.Now.AddDays(6), GetRandomContent(), GetRandomColor()),
+        new Note("8", "22371a1d-8420-4c5c-a200-8c6ab14e1e8f", 8, null, DateTime.Now.AddDays(7), GetRandomContent(), GetRandomColor())
     ];
 }
