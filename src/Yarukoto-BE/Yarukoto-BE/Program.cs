@@ -63,6 +63,14 @@ notesApi.MapGet("/{noteId}", (string workspaceId, string noteId) =>
     var note = MockData.Notes.FirstOrDefault(x => x.WorkspaceId == workspaceId && x.Id == noteId);
     return note is not null ? Results.Ok(note) : Results.NotFound();
 });
+notesApi.MapDelete("/{noteId}", (string workspaceId, string noteId) =>
+{
+    var note = MockData.Notes.FirstOrDefault(x => x.WorkspaceId == workspaceId && x.Id == noteId);
+    if(note is null)
+        return Results.NotFound();
+    MockData.Notes.Remove(note);
+    return Results.Ok();
+});
 
 app.Run();
 

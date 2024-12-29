@@ -4,24 +4,24 @@ POST {{host}}/workspace
 Content-Type: application/json
 
 {
-  "id": "22371a1d-8420-4c5c-a200-8c6ab14e1e8f",
+  "id": "d912fb07-6d6e-4c24-a735-a1b02191d33d",
   "name": "workspace1",
   "email": "your@email.com"
 }
 
 ###
 
-GET {{host}}/workspace/22371a1d-8420-4c5c-a200-8c6ab14e1e8f
+GET {{host}}/workspace/d912fb07-6d6e-4c24-a735-a1b02191d33d
 Accept: application/json
 
 ###
 
-POST {{host}}/workspace/22371a1d-8420-4c5c-a200-8c6ab14e1e8f/notes
+POST {{host}}/workspace/d912fb07-6d6e-4c24-a735-a1b02191d33d/notes
 Content-Type: application/json
 
 {
-  "id": "9",
-  "workspaceId": "22371a1d-8420-4c5c-a200-8c6ab14e1e8f",
+  "id": "109",
+  "workspaceId": "d912fb07-6d6e-4c24-a735-a1b02191d33d",
   "order": "9",
   "title": "New Note",
   "date": "2024-10-10T10:00:00Z",
@@ -31,13 +31,17 @@ Content-Type: application/json
 
 ###
 
-GET {{host}}/workspace/22371a1d-8420-4c5c-a200-8c6ab14e1e8f/notes
+GET {{host}}/workspace/d912fb07-6d6e-4c24-a735-a1b02191d33d/notes
 Accept: application/json
-
 
 ###
 
-GET {{host}}/workspace/22371a1d-8420-4c5c-a200-8c6ab14e1e8f/notes/9
+GET {{host}}/workspace/d912fb07-6d6e-4c24-a735-a1b02191d33d/notes/109
+Accept: application/json
+
+###
+
+DELETE {{host}}/workspace/d912fb07-6d6e-4c24-a735-a1b02191d33d/notes/109
 Accept: application/json
 
 ###
