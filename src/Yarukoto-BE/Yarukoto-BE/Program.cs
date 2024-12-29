@@ -49,12 +49,12 @@ notesApi.MapGet("/", (string workspaceId) =>
 });
 notesApi.MapPost("/", (string workspaceId, Note note) =>
 {
-    var noteAlreadyPresent =
-        MockData.Notes
-            .Where(x => x.WorkspaceId == workspaceId)
-            .Any(x => x.Id == note.Id);
-    if(noteAlreadyPresent)
-        return Results.Conflict();
+    var maxId = MockData.Notes
+        .Where(x => x.WorkspaceId == workspaceId)
+        .Max(x => x.Id);
+
+    note = note with { Id = (maxId + 1) };
+
     MockData.Notes.Add(note);
     return Results.Ok(note);
 });
