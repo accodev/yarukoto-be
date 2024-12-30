@@ -1,6 +1,6 @@
-﻿using Yarukoto_BE.Model;
+﻿using Yarukoto.Host.Model;
 
-namespace Yarukoto_BE.Data;
+namespace Yarukoto.Host.Data;
 
 public static class MockData
 {

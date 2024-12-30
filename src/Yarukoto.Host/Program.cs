@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
-using Yarukoto_BE.Data;
-using Yarukoto_BE.Model;
+using Yarukoto.Host.Data;
+using Yarukoto.Host.Model;
 
 var builder = WebApplication.CreateSlimBuilder(args);
 

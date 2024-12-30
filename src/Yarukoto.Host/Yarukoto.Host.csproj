@@ -4,9 +4,8 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>Yarukoto_BE</RootNamespace>
+        <RootNamespace>Yarukoto.Host</RootNamespace>
         <InvariantGlobalization>true</InvariantGlobalization>
-        <PublishAot>true</PublishAot>
     </PropertyGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yarukoto-BE", "Yarukoto-BE\Yarukoto-BE.csproj", "{C7BF18B7-38D5-4AE0-9EEB-8720519F68C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yarukoto.Host", "src\Yarukoto.Host\Yarukoto.Host.csproj", "{C7BF18B7-38D5-4AE0-9EEB-8720519F68C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
