@@ -8,5 +8,5 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 COPY --from=sdk ./out .
 
-EXPOSE 5277 5277
+EXPOSE 8080 5277
 ENTRYPOINT ["dotnet", "Yarukoto.Host.dll"]
