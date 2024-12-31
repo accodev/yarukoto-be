@@ -21,10 +21,36 @@ Content-Type: application/json
 
 {
   "workspaceId": "d912fb07-6d6e-4c24-a735-a1b02191d33d",
-  "title": "New Note",
+  "title": "New Note 1",
   "date": "2024-10-10T10:00:00Z",
-  "content": "This is the content of the new note.",
+  "content": "This is the content of the new note 1.",
   "color": "blue"
+}
+
+###
+
+POST {{host}}/workspace/d912fb07-6d6e-4c24-a735-a1b02191d33d/notes
+Content-Type: application/json
+
+{
+  "workspaceId": "d912fb07-6d6e-4c24-a735-a1b02191d33d",
+  "title": "New Note 2",
+  "date": "2024-10-10T10:00:00Z",
+  "content": "This is the content of the new note 2.",
+  "color": "indigo"
+}
+
+###
+
+POST {{host}}/workspace/d912fb07-6d6e-4c24-a735-a1b02191d33d/notes
+Content-Type: application/json
+
+{
+  "workspaceId": "d912fb07-6d6e-4c24-a735-a1b02191d33d",
+  "title": "New Note 3",
+  "date": "2024-10-10T10:00:00Z",
+  "content": "This is the content of the new note 3.",
+  "color": "yellow"
 }
 
 > {% client.global.set("note", response.body); %}
