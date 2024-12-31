@@ -71,6 +71,15 @@ notesApi.MapDelete("/{noteId}", (string workspaceId, string noteId) =>
     MockData.Notes.Remove(note);
     return Results.Ok();
 });
+notesApi.MapPut("/{noteId}", (string workspaceId, string noteId, Note note) =>
+{
+    var index = 
+        MockData.Notes.FindIndex(x => x.WorkspaceId == workspaceId && x.Id == noteId);
+    if(index == -1)
+        return Results.NotFound();
+    MockData.Notes[index] = note with { Id = noteId, WorkspaceId = workspaceId };
+    return Results.Ok();
+});
 
 app.Run();
 
