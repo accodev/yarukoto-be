@@ -53,7 +53,8 @@ notesApi.MapPost("/", (string workspaceId, Note note) =>
         .Where(x => x.WorkspaceId == workspaceId)
         .Max(x => x.Id);
 
-    note = note with { Id = (maxId + 1) };
+    note = 
+        note with { Id = (int.Parse(maxId ?? "0") + 1).ToString() };
 
     MockData.Notes.Add(note);
     return Results.Ok(note);
