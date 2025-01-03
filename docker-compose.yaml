@@ -1,0 +1,23 @@
+services:
+  # yarukoto-db:
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_USER: yarukoto
+  #     POSTGRES_PASSWORD: yarukoto
+  #     POSTGRES_DB: yarukoto
+  #   ports:
+  #     - "6000:5432"
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+
+  yarukoto-host:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "5277:8080"
+    # depends_on:
+    #   - yarukoto-db
+
+# volumes:
+#   pgdata:
