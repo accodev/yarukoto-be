@@ -1,0 +1,38 @@
+services:
+  backend-db:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_USER: yarukoto
+      POSTGRES_PASSWORD: yarukoto
+    volumes:
+      - backenddata:/var/lib/postgresql/data
+  
+  backend-adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  backend:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    ports:
+      - "5277:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DbConnectionString=Host=backend-db;Database=yarukoto;Username=yarukoto;Password=yarukoto
+    depends_on:
+      - backend-db
+
+volumes:
+  backenddata:
