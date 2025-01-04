@@ -24,7 +24,7 @@ services:
 
   backend:
     build:
-      context: ./
+      context: ./src
       dockerfile: Dockerfile
     ports:
       - "5277:8080"
