@@ -4,6 +4,7 @@ using Yarukoto.Host.DTO;
 using Yarukoto.Data;
 using Yarukoto.Data.Model;
 using Yarukoto.Host.Profiles;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateSlimBuilder(args);
 
@@ -34,6 +35,23 @@ var app = builder.Build();
 
 // Use CORS policy
 app.UseCors("AllowAllOrigins");
+
+// todo: this should be moved to a separate task
+app.MapGet("/setup", async () =>
+{
+    try
+    {
+        await using var db = new YarukotoDbContext();
+        await db.Database.EnsureCreatedAsync();
+        await db.Database.MigrateAsync();
+        return Results.Ok();
+    }
+    catch (Exception ex)
+    {
+        // Log the exception (you can use a logging framework here)
+        return Results.Problem(ex.Message);
+    }
+});
 
 var workspaceApi = app.MapGroup("/workspace");
 workspaceApi.MapPost("/", async (IMapper mapper, WorkspaceDto workspace) =>

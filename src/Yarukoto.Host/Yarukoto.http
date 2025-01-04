@@ -90,3 +90,7 @@ Accept: application/json
 
 ###
 
+GET {{host}}/setup
+Accept: application/json
+
+###
