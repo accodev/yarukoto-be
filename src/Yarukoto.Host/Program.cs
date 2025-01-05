@@ -42,7 +42,6 @@ app.MapGet("/setup", async () =>
     try
     {
         await using var db = new YarukotoDbContext();
-        await db.Database.EnsureCreatedAsync();
         await db.Database.MigrateAsync();
         return Results.Ok();
     }
