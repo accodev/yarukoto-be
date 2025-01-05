@@ -27,9 +27,8 @@ services:
       context: ./src
       dockerfile: Dockerfile
     ports:
-      - "5277:8080"
+      - "5277:5277"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
       - DbConnectionString=Host=backend-db;Database=yarukoto;Username=yarukoto;Password=yarukoto
     depends_on:
       - backend-db
