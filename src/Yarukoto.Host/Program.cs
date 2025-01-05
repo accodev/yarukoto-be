@@ -85,7 +85,7 @@ notesApi.MapPost("/", async (IMapper mapper, string workspaceId, NoteDto note) =
 {
     await using var db = new YarukotoDbContext();
     var lastId = 0;
-    if (db.Notes.Any())
+    if (db.Notes.Any(x => x.WorkspaceId == workspaceId))
     {
         lastId = db.Notes
             .Where(x => x.WorkspaceId == workspaceId)
