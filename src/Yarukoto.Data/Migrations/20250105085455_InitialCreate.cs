@@ -15,20 +15,20 @@ namespace Yarukoto.Data.Migrations
                 name: "Workspaces",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
+                    WorkspaceId = table.Column<string>(type: "text", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Workspaces", x => x.Id);
+                    table.PrimaryKey("PK_Workspaces", x => x.WorkspaceId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Notes",
                 columns: table => new
                 {
-                    NoteId = table.Column<string>(type: "text", nullable: false),
+                    NoteId = table.Column<int>(type: "integer", nullable: false),
                     WorkspaceId = table.Column<string>(type: "text", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: true),
                     Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -42,7 +42,7 @@ namespace Yarukoto.Data.Migrations
                         name: "FK_Notes_Workspaces_WorkspaceId",
                         column: x => x.WorkspaceId,
                         principalTable: "Workspaces",
-                        principalColumn: "Id",
+                        principalColumn: "WorkspaceId",
                         onDelete: ReferentialAction.Cascade);
                 });
 

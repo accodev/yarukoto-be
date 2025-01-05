@@ -84,26 +84,30 @@ notesApi.MapGet("/", async (IMapper mapper, string workspaceId) =>
 notesApi.MapPost("/", async (IMapper mapper, string workspaceId, NoteDto note) =>
 {
     await using var db = new YarukotoDbContext();
-    var maxId = db.Notes
-        .Where(x => x.WorkspaceId == workspaceId)
-        .Max(x => x.NoteId);
+    var lastId = 0;
+    if (db.Notes.Any())
+    {
+        lastId = db.Notes
+            .Where(x => x.WorkspaceId == workspaceId)
+            .Max(x => x.NoteId);
+    }
 
     var dbNote = 
         mapper.Map<NoteDto, Note>(note);
-    dbNote.NoteId = (int.Parse(maxId ?? "0") + 1).ToString();
+    dbNote.NoteId = lastId + 1;
     db.Notes.Add(dbNote);
 
     await db.SaveChangesAsync();
     
     return Results.Ok(mapper.Map<Note, NoteDto>(dbNote));
 });
-notesApi.MapGet("/{noteId}", async (IMapper mapper, string workspaceId, string noteId) =>
+notesApi.MapGet("/{noteId}", async (IMapper mapper, string workspaceId, int noteId) =>
 {
     await using var db = new YarukotoDbContext();
     var dbNote = db.Notes.FirstOrDefault(x => x.WorkspaceId == workspaceId && x.NoteId == noteId);
     return dbNote is not null ? Results.Ok(mapper.Map<Note, NoteDto>(dbNote)) : Results.NotFound();
 });
-notesApi.MapDelete("/{noteId}", async (string workspaceId, string noteId) =>
+notesApi.MapDelete("/{noteId}", async (string workspaceId, int noteId) =>
 {
     await using var db = new YarukotoDbContext();
     var dbNote = db.Notes.FirstOrDefault(x => x.WorkspaceId == workspaceId && x.NoteId == noteId);
@@ -113,7 +117,7 @@ notesApi.MapDelete("/{noteId}", async (string workspaceId, string noteId) =>
     await db.SaveChangesAsync();
     return Results.Ok();
 });
-notesApi.MapPut("/{noteId}", async (IMapper mapper, string workspaceId, string noteId, NoteDto note) =>
+notesApi.MapPut("/{noteId}", async (IMapper mapper, string workspaceId, int noteId, NoteDto note) =>
 {
     await using var db = new YarukotoDbContext();
     var dbNote = 

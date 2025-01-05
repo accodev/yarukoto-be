@@ -2,7 +2,7 @@ namespace Yarukoto.Host.DTO;
 
 public class NoteDto
 {
-    public string? Id { get; set; }
+    public int? Id { get; set; }
     public string WorkspaceId { get; set; } = null!;
     public string? Title { get; set; }
     public DateTime Date { get; set; }
@@ -11,7 +11,7 @@ public class NoteDto
 
     public NoteDto() { }
 
-    public NoteDto(string? id, string workspaceId, string? title, DateTime date, string content, string color)
+    public NoteDto(int? id, string workspaceId, string? title, DateTime date, string content, string color)
     {
         Id = id;
         WorkspaceId = workspaceId;

@@ -12,7 +12,7 @@ using Yarukoto.Data;
 namespace Yarukoto.Data.Migrations
 {
     [DbContext(typeof(YarukotoDbContext))]
-    [Migration("20250103091421_InitialCreate")]
+    [Migration("20250105085455_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -27,8 +27,8 @@ namespace Yarukoto.Data.Migrations
 
             modelBuilder.Entity("Yarukoto.Data.Model.Note", b =>
                 {
-                    b.Property<string>("NoteId")
-                        .HasColumnType("text");
+                    b.Property<int>("NoteId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("WorkspaceId")
                         .HasColumnType("text");
@@ -56,7 +56,7 @@ namespace Yarukoto.Data.Migrations
 
             modelBuilder.Entity("Yarukoto.Data.Model.Workspace", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("WorkspaceId")
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
@@ -67,7 +67,7 @@ namespace Yarukoto.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.HasKey("WorkspaceId");
 
                     b.ToTable("Workspaces");
                 });

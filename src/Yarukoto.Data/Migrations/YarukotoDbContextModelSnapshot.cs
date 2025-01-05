@@ -24,8 +24,8 @@ namespace Yarukoto.Data.Migrations
 
             modelBuilder.Entity("Yarukoto.Data.Model.Note", b =>
                 {
-                    b.Property<string>("NoteId")
-                        .HasColumnType("text");
+                    b.Property<int>("NoteId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("WorkspaceId")
                         .HasColumnType("text");
