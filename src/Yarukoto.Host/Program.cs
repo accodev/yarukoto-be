@@ -124,6 +124,7 @@ notesApi.MapPut("/{noteId}", async (IMapper mapper, string workspaceId, int note
         db.Notes.FirstOrDefault(x => x.WorkspaceId == workspaceId && x.NoteId == noteId);
     if(dbNote is null)
         return Results.NotFound();
+    dbNote.Order = note.Order;
     dbNote.Title = note.Title;
     dbNote.Date = note.Date;
     dbNote.Content = note.Content;
